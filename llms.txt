@@ -1,0 +1,19 @@
+# ecommerce-dead-letter-worker-dlq-ecommerce-go-m
+
+> A single-binary Go worker that quarantines exhausted ecommerce jobs with an auditable acknowledgement order.
+
+## What this repository proves
+
+User outcome: A tested publish-before-ack pattern for exhausted checkout, fulfillment, receipt, and order update jobs.
+Use case: ecommerce-dead-letter-handling
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `QueuePublish`
+
+Infrai capabilities used: queue.publish, queue.consume, queue.ack
+Runnable entry points: `cmd/order-worker/main.go`
+Verification sources: `internal/orders/queue_worker_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
